@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap');
+
+body {
+    margin: 0;
+    background-color: #000000;
+    font-family: 'Comfortaa', cursive, sans-serif;
+}
+
+#bancada {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 60%;
+    width: 90%;
+    z-index: 9999;
+}
+
+#cliente {
+    position: fixed;
+    height: 70%;
+    left: 60px;
+    bottom: 100px;
+}
+
+#pedido {
+    position: fixed;
+    width: 30%;
+    top: 15%;
+    left: 300px;
+    color: white;
+    font-size: 24px;
+    
+}
+
+#menu-principal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    height: 70%;
+    width: 40%;
+    border: solid 3px white;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-iniciar {
+    background-color: #000000;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    border: solid 3px white;
+    border-radius: 10px;
+    height: 64px;
+    width: 128px;
+    cursor: pointer;
+}
