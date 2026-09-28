@@ -2,6 +2,7 @@ const menuP = document.getElementById("menu-principal")
 const cafeteria = document.getElementById("cafeteria");
 const cliente = document.getElementById("cliente");
 const pedido = document.getElementById("pedido");
+const cozinha = document.getElementById("cozinha");
 let ultimaMusica = 0;
 let qntClientes = 0;
 let numPedido = 0;
@@ -29,12 +30,14 @@ function sortearCliente() {
 function sortearMusica() {
     let numMusica;
     do {
-        numMusica = Math.floor(Math.random() * 5) + 1;
+        numMusica = Math.floor(Math.random() * 7) + 1;
     } while (numMusica === ultimaMusica);
     ultimaMusica = numMusica;
     let musicaAtual = new Audio ('musicas/musica' + numMusica + '.mp3');
     musicaAtual.volume = 0.4;
-    musicaAtual.play();
+    setTimeout(() => {
+        musicaAtual.play();
+    }, 5000);
     musicaAtual.addEventListener('ended', sortearMusica);
 }
 
@@ -51,6 +54,13 @@ function sortearPedido() {
 
 function carregarPedido() {
     pedido.innerHTML = carregarMensagens()[numMsg];
+}
+
+// Preparar os pedidos
+
+function prepararPedido() {
+    cafeteria.style.display = "none";
+    cozinha.style.display = "block";
 }
 
 // Lista de pedidos

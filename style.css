@@ -74,3 +74,136 @@ body {
     font-size: 30px;
     cursor: pointer;
 }
+
+#cozinha {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Força uma imagem FICAR EM CIMA da outra */
+}
+
+.prateleira-top {
+    width: 100vw;
+    height: 30vh;
+    object-fit: fill;
+}
+
+.prateleira-bottom {
+    width: 100vw;
+    height: 70vh;
+    object-fit: fill;
+}
+
+/* Preparo de pedidos (Ingredientes) */
+
+#xicaras {
+    position: absolute;
+    left: 1%;
+    top: 1%;
+    height: 28%;
+    width: 21%;
+    cursor: pointer;
+}
+
+#cafeteira {
+    position: absolute;
+    left: 2%;
+    top: 32%;
+    height: 33%;
+    width: 17%;
+}
+
+#quarto {
+    position: absolute;
+    left: 14%;
+    top: 13%;
+    height: 7%;
+    width: 18%;
+    cursor: pointer;
+}
+
+#meio {
+    position: absolute;
+    left: 43%;
+    top: 13%;
+    height: 7%;
+    width: 18%;
+    cursor: pointer;
+}
+
+#inteiro {
+    position: absolute;
+    left: 71%;
+    top: 13%;
+    height: 7%;
+    width: 18%;
+    cursor: pointer;
+}
+
+#leite {
+    position: absolute;
+    left: 24%;
+    top: 41%;
+    height: 23.3%;
+    width: 12.5%;
+    cursor: pointer;
+}
+
+#acucar {
+    position: absolute;
+    left: 44%;
+    top: 57%;
+    height: 8%;
+    width: 12%;
+    cursor: pointer;
+}
+
+#canela {
+    position: absolute;
+    left: 45%;
+    top: 46%;
+    height: 6.6%;
+    width: 11%;
+    cursor: pointer;
+}
+
+#adocante {
+    position: absolute;
+    left: 44.4%;
+    top: 34.4%;
+    height: 8.8%;
+    width: 13%;
+    cursor: pointer;
+}
+
+#marshmallows {
+    position: absolute;
+    left: 65%;
+    top: 44%;
+    height: 21%;
+    width: 16%;
+    cursor: pointer;
+}
+
+#chantilly {
+    position: absolute;
+    left: 87.7%;
+    top: 43.3%;
+    height: 22%;
+    width: 6.6%;
+    cursor: pointer;
+}
+
+#pia {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 27.7%;
+    width: 15%;
+    cursor: pointer;
+}
+
+/* Fim: Preparo de pedidos (Ingredientes) */
