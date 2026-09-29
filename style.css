@@ -116,10 +116,15 @@ body {
     width: 17%;
 }
 
+#cafeteira img {
+    height: 100%;
+    width: 100%;
+}
+
 #quarto {
     position: absolute;
-    left: 14%;
-    top: 13%;
+    left: 13.7%;
+    top: 12%;
     height: 7%;
     width: 18%;
     cursor: pointer;
@@ -128,7 +133,7 @@ body {
 #meio {
     position: absolute;
     left: 43%;
-    top: 13%;
+    top: 12%;
     height: 7%;
     width: 18%;
     cursor: pointer;
@@ -136,8 +141,8 @@ body {
 
 #inteiro {
     position: absolute;
-    left: 71%;
-    top: 13%;
+    left: 71.7%;
+    top: 12%;
     height: 7%;
     width: 18%;
     cursor: pointer;
@@ -154,10 +159,10 @@ body {
 
 #acucar {
     position: absolute;
-    left: 44%;
-    top: 57%;
-    height: 8%;
-    width: 12%;
+    left: 44.4%;
+    top: 54%;
+    height: 10.5%;
+    width: 11.5%;
     cursor: pointer;
 }
 
