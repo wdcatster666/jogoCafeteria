@@ -9,6 +9,12 @@
         <div id="menu-principal">
             <button class="botao-iniciar" onclick="iniciar()">Iniciar</button>
         </div>
+        <div id="informacoes">
+            <div id="fichaPedido" style="display: none;"></div>
+            <div id="paciencia" style="display: none;"></div>
+            <div id="qntDinheiro"></div>
+            <div id="btnPause"></div>
+        </div>
         <div id="cafeteria" style="display: none;">
             <img id="bancada" src="imagens/bancada.png">
             <img id="cliente" src="">
@@ -20,20 +26,22 @@
         <div id="cozinha" style="display: none;">
             <img class="prateleira-top" src="imagens/fundo_cima.png">
             <img class="prateleira-bottom" src="imagens/fundo_baixo.png">
-            <div id="xicaras"></div>
+            <div id="xicaras" onclick="pegarXicara()"></div>
             <div id="cafeteira">
-                <img src="imagens/cafeteira.png">
-                <div id="quarto"></div>
-                <div id="meio"></div>
-                <div id="inteiro"></div>
+                <img src="imagens/cafeteira.png" onclick="colocarNaCafeteira()">
+                <div id="quarto" onclick="pegarCafe('quarto')"></div>
+                <div id="meio" onclick="pegarCafe('meio')"></div>
+                <div id="inteiro" onclick="pegarCafe('inteiro')"></div>
             </div>
-            <img id="leite" src="imagens/leite.png">
-            <img id="acucar" src="imagens/acucar.png">
-            <img id="canela" src="imagens/canela.png">
-            <img id="adocante" src="imagens/adocante.png">
-            <img id="marshmallows" src="imagens/marshmallows.png">
-            <img id="chantilly" src="imagens/chantilly.png">
+            <img id="leite" src="imagens/leite.png" onclick="pegarLeite()">
+            <img id="acucar" src="imagens/acucar.png" onclick="pegarAcucar()">
+            <img id="canela" src="imagens/canela.png" onclick="pegarCanela()">
+            <img id="adocante" src="imagens/adocante.png" onclick="pegarAdocante()">
+            <img id="marshmallows" src="imagens/marshmallows.png" onclick="pegarMarshmallow()">
+            <img id="chantilly" src="imagens/chantilly.png" onclick="pegarChantilly()">
             <div id="pia"></div>
+            <img id="xcrPedido" src="imagens/xicara.png" style="display: none;">
         </div>
+        <div id="aviso" style="display: none;"></div>
     </body>
 </html>

@@ -211,4 +211,35 @@ body {
     cursor: pointer;
 }
 
+#xcrPedido {
+    position: absolute;
+    left: 37%;
+    top: 61%;
+    height: 9%;
+    width: auto;
+}
+
 /* Fim: Preparo de pedidos (Ingredientes) */
+
+#aviso {
+    position: fixed;
+    display: flex;
+    inset: 0;
+    margin: auto;
+    text-wrap: wrap;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0  0 8px rgba(255, 255, 255, 0.5);
+    width: 60%;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+}
