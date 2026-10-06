@@ -75,6 +75,69 @@ body {
     cursor: pointer;
 }
 
+#fichaPedido {
+    position: fixed;
+    height: 30%;
+    width: 15%;
+    top: -20%;
+    left: 3%;
+    z-index: 9999;
+    transition: margin-top 0.4s ease;
+}
+
+#notinha {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+#nomePedido {
+    position: absolute;
+    bottom: 86%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+#nomeAcomp {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    text-align: center;
+    color: #1b1b1b;
+    font-weight: bold;
+    font-size: 10px;
+    pointer-events: none;
+}
+
+#ingredientes {
+    position: absolute;
+    top: 28%;
+    left: 8%;
+    width: 90%;
+    color: #000000;
+    font-weight: bold;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+#btnPause {
+    position: fixed;
+    height: 10%;
+    width: auto;
+    top: 1%;
+    right: 1%;
+    cursor: pointer;
+    z-index: 9999;
+}
+
 #cozinha {
     position: fixed;
     top: 0;
@@ -82,7 +145,7 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column; /* Força uma imagem FICAR EM CIMA da outra */
+    flex-direction: column;
 }
 
 .prateleira-top {
@@ -217,6 +280,7 @@ body {
     top: 61%;
     height: 9%;
     width: auto;
+    pointer-events: none;
 }
 
 /* Fim: Preparo de pedidos (Ingredientes) */

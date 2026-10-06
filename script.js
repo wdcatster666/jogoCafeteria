@@ -1,8 +1,13 @@
 const menuP = document.getElementById("menu-principal")
 const cafeteria = document.getElementById("cafeteria");
-const cliente = document.getElementById("cliente");
-const pedido = document.getElementById("pedido");
 const cozinha = document.getElementById("cozinha");
+const notinha = document.getElementById("fichaPedido");
+const ingrdNota = document.getElementById("ingredientes");
+const btnPause = document.getElementById("btnPause");
+let cliente = document.getElementById("cliente");
+let pedido = document.getElementById("pedido");
+let nomePedido = document.getElementById("nomePedido");
+let nomeAcomp = document.getElementById("nomeAcomp");
 
 // Elementos da cozinha
 const xicaras = document.getElementById("xicaras");
@@ -29,6 +34,7 @@ let pegouXicara = false;
 let transbordou = false;
 let naCafeteira = false;
 let adicionandoIngrd = false;
+let exibindoNota = false;
 
 // Ingredientes = [Café | Leite | Açúcar | Canela | Adoçante | Marshmallows | Chantilly]
 
@@ -43,6 +49,7 @@ function iniciar() {
     dinheiroAtual = 30.00;
     menuP.style.display = "none";
     cafeteria.style.display = "block";
+    btnPause.style.display = "block";
 }
 
 // Sortear cliente
@@ -74,6 +81,8 @@ function sortearPedido() {
     numPedido = Math.floor(Math.random() * pedidos.length);
     numAcomp = Math.floor(Math.random() * acompanhamentos.length);
     numMsg = Math.floor(Math.random() * carregarMensagens().length);
+    nomePedido.innerHTML = pedidos[numPedido];
+    nomeAcomp.innerHTML = acompanhamentos[numAcomp].toUpperCase();
     ingrdPedido = atualizarIngredientes()[numPedido];
     carregarPedido();
 }
@@ -96,12 +105,92 @@ function exibirAviso(msgErro) {
     }, 3000)
 }
 
+// Exibir e esconder notinha do pedido
+
+function exibirFicha() {
+    if (!exibindoNota) {
+        notinha.style.marginTop = "10.5%";
+        exibindoNota = true;
+    } else {
+        notinha.style.marginTop = "0";
+        exibindoNota = false;
+    }
+}
+
+// Atualizar a notinha
+
+function atualizarFicha() {
+    let listaIngrd = [];
+
+    // CAFÉ
+
+    if (ingrdAtuais[0] > 0) {
+        if (ingrdAtuais[0] == 0.25) {
+            listaIngrd.push(`- Café (1/4)`);
+        } else if (ingrdAtuais[0] == 0.50) {
+            listaIngrd.push(`- Café (1/2)`);
+        } else if (ingrdAtuais[0] == 0.75) {
+            listaIngrd.push(`- Café (3/4)`);
+        } else {
+            listaIngrd.push(`- Café (1)`);
+        }
+    }
+
+    // LEITE
+
+    if (ingrdAtuais[1] > 0) {
+        if (ingrdAtuais[1] == 0.25) {
+            listaIngrd.push(`- Leite (1/4)`);
+        } else if (ingrdAtuais[1] == 0.50) {
+            listaIngrd.push(`- Leite (1/2)`);
+        } else if (ingrdAtuais[1] == 0.75) {
+            listaIngrd.push(`- Leite (3/4)`);
+        } else {
+            listaIngrd.push(`- Leite (1)`);
+        }   
+    }
+
+    // AÇÚCAR
+
+    if (ingrdAtuais[2] > 0) {
+        listaIngrd.push(`- Açúcar (${ingrdAtuais[2]})`);
+    }
+
+    // CANELA
+
+    if (ingrdAtuais[3] > 0) {
+        listaIngrd.push(`- Canela (${ingrdAtuais[3]})`);
+    }
+
+    // ADOÇANTE
+
+    if (ingrdAtuais[4] > 0) {
+        listaIngrd.push(`- Adoçante (${ingrdAtuais[4]})`);
+    }
+
+    // MARSHMALLOWS
+
+    if (ingrdAtuais[5] > 0) {
+        listaIngrd.push(`- Marhsmallows (${ingrdAtuais[5]})`);
+    }
+
+    // CHANTILLY
+
+    if (ingrdAtuais[6] > 0) {
+        listaIngrd.push(`- Chantilly`);
+    }
+
+    ingrdNota.innerHTML = listaIngrd.join("<br>");
+}
+
 // Seção de preparo dos pedidos
 
 function prepararPedido() {
     cafeteria.style.display = "none";
     cozinha.style.display = "block";
+    notinha.style.display = "block";
     ingrdAtuais = [0, 0, 0, 0, 0, 0, 0];
+    atualizarFicha();
 }
 
 function pegarXicara() {
@@ -143,6 +232,7 @@ function pegarCafe(quantidade) {
                         ingrdAtuais[0] += 0.25;
                         setTimeout(() => {
                             adicionandoIngrd = false;
+                            atualizarFicha();
                         }, 2000);
                     } else {
                         exibirAviso("A xícara já está cheia de café e de leite!");
@@ -165,6 +255,7 @@ function pegarCafe(quantidade) {
                         ingrdAtuais[0] += 0.50;
                         setTimeout(() => {
                             adicionandoIngrd = false;
+                            atualizarFicha();
                         }, 4000);
                     } else {
                         exibirAviso("A xícara já está cheia de café e de leite!");
@@ -187,6 +278,7 @@ function pegarCafe(quantidade) {
                         ingrdAtuais[0] += 1.00;
                         setTimeout(() => {
                             adicionandoIngrd = false;
+                            atualizarFicha();
                         }, 8000);
                     } else {
                         exibirAviso("A xícara já está cheia de café e de leite!");
@@ -239,19 +331,23 @@ function pegarLeite() {
                     if (ingrdAtuais[1] <= 0.25) {
                         setTimeout(() => {
                             adicionandoIngrd = false;
+                            atualizarFicha();
                         }, 2000);
                     }
                     else if (ingrdAtuais[1] <= 0.50) {
                         setTimeout(() => {
                             adicionandoIngrd = false;
+                            atualizarFicha();
                         }, 4000);
                     } else if (ingrdAtuais[1] <= 0.75) {
                         setTimeout(() => {
                             adicionandoIngrd = false;
+                            atualizarFicha();
                         }, 6000);
                     } else {
                         setTimeout(() => {
                             adicionandoIngrd = false;
+                            atualizarFicha();
                         }, 8000);
                     }
                 } else {
@@ -276,6 +372,7 @@ function pegarAcucar() {
                     if (ingrdAtuais[0] > 0 || ingrdAtuais[1] > 0) {
                         dinheiroAtual -= 0.05;
                         ingrdAtuais[2]++;
+                        atualizarFicha();
                     } else {
                         exibirAviso("Adicione café ou leite antes de adicionar açúcar!");
                     }
@@ -300,6 +397,7 @@ function pegarCanela() {
                 if (ingrdAtuais[0] > 0 || ingrdAtuais[1] > 0) {
                     dinheiroAtual -= 0.50;
                     ingrdAtuais[3]++;
+                    atualizarFicha();
                 } else {
                     exibirAviso("Adicione café ou leite antes de adicionar canela!");
                 }
@@ -322,6 +420,7 @@ function pegarAdocante() {
                     if (ingrdAtuais[0] > 0 || ingrdAtuais[1] > 0) {
                         dinheiroAtual -= 0.10;
                         ingrdAtuais[4]++;
+                        atualizarFicha();
                     } else {
                         exibirAviso("Adicione café ou leite antes de adicionar adoçante!");
                     }
@@ -347,6 +446,7 @@ function pegarMarshmallow() {
                     if (ingrdAtuais[0] > 0 || ingrdAtuais[1] > 0) {
                         dinheiroAtual -= 1.00;
                         ingrdAtuais[5]++;
+                        atualizarFicha();
                     } else {
                         exibirAviso("Adicione café ou leite antes de adicionar marshmallows!");
                     }
@@ -380,6 +480,7 @@ function pegarChantilly() {
                     }
                     setTimeout(() => {
                         adicionandoIngrd = false;
+                        atualizarFicha();
                     }, 3000);
                 } else {
                     exibirAviso("Adicione café ou leite antes de adicionar chantilly!");

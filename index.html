@@ -10,17 +10,22 @@
             <button class="botao-iniciar" onclick="iniciar()">Iniciar</button>
         </div>
         <div id="informacoes">
-            <div id="fichaPedido" style="display: none;"></div>
+            <div id="fichaPedido" style="display: none;">
+                <img id="notinha" src="imagens/nota_pedido.png" onclick="exibirFicha()">
+                <div id="nomePedido"></div>
+                <div id="nomeAcomp"></div>
+                <div id="ingredientes"></div>
+            </div>
             <div id="paciencia" style="display: none;"></div>
             <div id="qntDinheiro"></div>
-            <div id="btnPause"></div>
+            <img id="btnPause" src="imagens/botao_pause.png" style="display: none;">
         </div>
         <div id="cafeteria" style="display: none;">
             <img id="bancada" src="imagens/bancada.png">
             <img id="cliente" src="">
             <div id="dialogo">
                 <div id="pedido"></div>
-                <button class="botao-ok" onClick="prepararPedido()">OK!</button>
+                <button class="botao-ok" onclick="prepararPedido()">OK!</button>
             </div>
         </div>
         <div id="cozinha" style="display: none;">
